@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayoutUserProfile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/relativeLayoutUserProfile"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".Activities.UserProfileActivity">
 
     <android.support.v7.widget.Toolbar
@@ -17,20 +17,20 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="20dp"/>
+        android:layout_height="20dp" />
 
     <TextView
         android:id="@+id/textViewYourProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:text="YOUR PROFILE"
+        android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
         android:textColor="@color/black" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="20dp"/>
+        android:layout_height="20dp" />
 
     <LinearLayout
         android:id="@+id/relativeLayout"
@@ -43,8 +43,8 @@
             android:id="@+id/textViewEditProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp"
             android:text="EDIT PROFILE"
             android:textAlignment="center"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
@@ -52,10 +52,10 @@
             android:textStyle="bold" />
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageViewUserPhoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:id="@+id/imageViewUserPhoto"
             android:src="@drawable/hambergerprofilepicture" />
 
 
@@ -67,7 +67,7 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
             <ImageButton
                 android:id="@+id/buttonCameraIcon"
@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:background="@color/colorEditUserBackground"
-                android:src="@drawable/cameraicon"/>
+                android:src="@drawable/cameraicon" />
 
         </LinearLayout>
 
@@ -83,25 +83,26 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editTextFirstName"
+        android:id="@+id/editTextUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/relativeLayout"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:hint="First Name" />
+        android:hint="Username" />
 
     <EditText
         android:id="@+id/editTextLastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextFirstName"
+        android:layout_below="@id/editTextUsername"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:hint="Last Name" />
+        android:hint="Last Name"
+        android:visibility="gone" />
 
     <EditText
         android:id="@+id/editTextEmail"
@@ -111,8 +112,8 @@
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:inputType="textEmailAddress"
-        android:hint="Email" />
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -137,7 +138,6 @@
             android:src="@drawable/submitbutton" />
 
     </LinearLayout>
-
 
 
 </LinearLayout>

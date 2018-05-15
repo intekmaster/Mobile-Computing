@@ -61,7 +61,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         loginButton = findViewById(R.id.loginButton);
         userID = findViewById(R.id.editTextID);
         userPassword = findViewById(R.id.editTextPassword);
-        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
 
 
         signInButton.setOnClickListener(this);
@@ -86,7 +86,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
 
-                    Toast.makeText(this,"Location access is needed",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Location access is needed", Toast.LENGTH_SHORT).show();
                     this.finish();
                 }
                 return;
@@ -98,11 +98,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
-
-
     @Override
     protected void onStart() {
-
 
         super.onStart();
     }

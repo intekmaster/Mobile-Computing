@@ -6,10 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.example.sushantpaygude.finalproject.POJOs.ServerPojo.ServerRegistration;
 import com.example.sushantpaygude.finalproject.R;
 
 public class UserProfileActivity extends AppCompatActivity implements View.OnClickListener {
@@ -19,20 +21,34 @@ public class UserProfileActivity extends AppCompatActivity implements View.OnCli
     private ImageView userPhoto;
     private RelativeLayout relativeLayout;
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    private EditText editUsername;
+    private EditText editPassword;
+    private EditText emailId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
+
+        Bundle bundle = getIntent().getExtras();
+
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("Account");
+        editUsername = findViewById(R.id.editTextUsername);
+        editPassword = findViewById(R.id.editTextPassword);
+        emailId = findViewById(R.id.editTextEmail);
 
         uploadPicture = findViewById(R.id.buttonCameraIcon);
         uploadPicture.setOnClickListener(this);
-
         userPhoto = findViewById(R.id.imageViewUserPhoto);
+
+        if (bundle != null) {
+            ServerRegistration serverRegistration = (ServerRegistration) bundle.getSerializable("UserProfile");
+            editUsername.setText(serverRegistration.getUsers().getUser());
+            editPassword.setText(serverRegistration.getUsers().getEmailid());
+        }
 
     }
 

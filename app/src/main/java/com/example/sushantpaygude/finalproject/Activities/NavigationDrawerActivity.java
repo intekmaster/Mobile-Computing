@@ -70,6 +70,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
     private LocationService my_loc_service;
     Boolean mBound = false;
     private double[] mylocation = new double[2];
+    private ServerRegistration serverRegistration;
     TinyDB tinyDB;
 
     @Override
@@ -99,10 +100,11 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
                 inflateNavigationHeader(navigationHeader, googleSignInAccount, null);
             }
 
-            ServerRegistration serverRegistration = (ServerRegistration) extras.getSerializable(Utilities.SERVERSIGNINACCOUNT);
+            serverRegistration = (ServerRegistration) extras.getSerializable(Utilities.SERVERSIGNINACCOUNT);
 
             if (serverRegistration != null) {
                 inflateNavigationHeader(navigationHeader, null, serverRegistration);
+
 
             }
         }
@@ -158,6 +160,10 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
                 break;
             case R.id.nav_account:
                 Intent userProfileIntent = new Intent(this, UserProfileActivity.class);
+                if (serverRegistration != null) {
+                    userProfileIntent.putExtra("UserProfile", serverRegistration);
+
+                }
                 startActivity(userProfileIntent);
                 break;
             case R.id.nav_notification:
@@ -291,13 +297,10 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
             String query = "";
             ArrayList<String> todoArrayList = tinyDB.getListString(Utilities.TO_DO_LIST_STRING);
 //            String todoJson = new Gson().toJson(todoArrayList);
-            if(todoArrayList.size() == 0)
-            {
+            if (todoArrayList.size() == 0) {
                 type = "store";
                 query = "pen";
-            }
-            else
-            {
+            } else {
                 type = "restaurant";
                 query += todoArrayList.get(0);
             }
