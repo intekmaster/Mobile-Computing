@@ -66,7 +66,7 @@ public class Utilities {
     //GOOGLE PLACES API IDS AND URLS
     public static String ATMS = "ATMS/Banks";
     public static String GAS_STATION = "Gas Station";
-    public static String GOOGLEPLACES_API_KEY = "AIzaSyAtnrxzi_IB_lPSsy0kfeFzZsW2WvdexVA";
+    public static String GOOGLEPLACES_API_KEY = "AIzaSyBer4uEGhaM6RK9eYMz4OoptFg3cxU9bGk";
     public static String GOOGLEPLACES_BASE_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
     public static String GET_ATMS_BY_LOCATION = GOOGLEPLACES_BASE_URL + "location=%s,%s&radius=1500&type=atm&key=%s&pagetoken=%s";
     public static String GET_GAS_STATION_BY_LOCATION = GOOGLEPLACES_BASE_URL + "location=%s,%s&radius=1500&type=gas_station&key=%s&pagetoken=%s";

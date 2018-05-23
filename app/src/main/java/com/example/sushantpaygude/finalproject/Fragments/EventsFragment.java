@@ -117,7 +117,7 @@ public class EventsFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                getEvents(39.260700, -76.699453, 10, pageNo);
+                getEvents(39.255613, -76.710975, 10, pageNo);
             }
         }, 1000);
     }

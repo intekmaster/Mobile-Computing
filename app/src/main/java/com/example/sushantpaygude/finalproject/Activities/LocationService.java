@@ -46,19 +46,22 @@ public class LocationService extends Service implements LocationListener {
             // No explanation needed; request the permission
             return;
         }
+        //editor = getSharedPreferences("Location", MODE_PRIVATE).edit();
+
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-        editor = getSharedPreferences("Location", MODE_PRIVATE).edit();
-//        location_[0] = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLatitude();
-//        location_[1] = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLongitude();
-//        addToSharedPreference(location_);
+        //Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+
+        location_[0] = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLatitude();
+        location_[1] = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLongitude();
+        addToSharedPreference(location_);
         Log.d("OnCreate: ", "Location Service is Created.");
     }
 
-    private void addToSharedPreference(double[] location)
-    {
-        editor.putString("Latitude",String.valueOf(location[0]));
-        editor.putString("Longitude",String.valueOf(location[1]));
+    private void addToSharedPreference(double[] location) {
+        editor = getSharedPreferences("Location", MODE_PRIVATE).edit();
+        editor.putString("Latitude", String.valueOf(location[0]));
+        editor.putString("Longitude", String.valueOf(location[1]));
         editor.apply();
     }
 
@@ -76,6 +79,7 @@ public class LocationService extends Service implements LocationListener {
     @Override
     public void onLocationChanged(Location location) {
         Log.d("In LocationService", "locationchanged");
+
         location_[0] = location.getLatitude();
         location_[1] = location.getLongitude();
         addToSharedPreference(location_);

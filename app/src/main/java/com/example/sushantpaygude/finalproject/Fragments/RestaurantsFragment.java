@@ -1,7 +1,9 @@
 package com.example.sushantpaygude.finalproject.Fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
@@ -87,7 +89,10 @@ public class RestaurantsFragment extends Fragment {
 
 
     private void getRestaurants() {
-        String url = String.format(Utilities.YELP_GET_RESTAURANTS_BY_LOCATION, "39.255220", "-76.710576");  //TODO Resolve Bug when Lat/Long has 00 in the end
+
+
+
+        String url = String.format(Utilities.YELP_GET_RESTAURANTS_BY_LOCATION, "39.255613", "-76.710975");  //TODO Resolve Bug when Lat/Long has 00 in the end
 
         //String url = "https://api.yelp.com/v3/businesses/search?latitude=39.260700&longitude=-76.699453&radius=10000";
         Log.e("URL", ":" + url);

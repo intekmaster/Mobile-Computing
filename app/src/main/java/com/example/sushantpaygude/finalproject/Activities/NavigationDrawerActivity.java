@@ -376,8 +376,8 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
                 Toast toast = Toast.makeText(getApplicationContext(), "Notification Sent Successfully!", Toast.LENGTH_SHORT);
                 toast.show();
             } else {
-                Toast toast = Toast.makeText(getApplicationContext(), "Notification Sending Failed!", Toast.LENGTH_SHORT);
-                toast.show();
+//                Toast toast = Toast.makeText(getApplicationContext(), "Notification Sending Failed!", Toast.LENGTH_SHORT);
+//                toast.show();
             }
         }
 
